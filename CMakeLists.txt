@@ -884,12 +884,14 @@ if ((CMAKE_BUILD_TYPE STREQUAL "Debug") OR (CMAKE_BUILD_TYPE STREQUAL "Sanitize"
 endif ()
 
 if ((CMAKE_BUILD_TYPE STREQUAL "Debug") OR (CMAKE_BUILD_TYPE STREQUAL "Sanitize") OR (CMAKE_BUILD_TYPE STREQUAL "Dev"))
-  target_compile_options (seastar
-    PUBLIC
+  if (CMAKE_CXX_COMPILER_ID@ STREQUAL "GNU")
+    target_compile_options (seastar
+      PUBLIC
       -fstack-clash-protection)
-  target_compile_definitions (seastar
-    PRIVATE
+    target_compile_definitions (seastar
+      PRIVATE
       SEASTAR_THREAD_STACK_GUARDS)
+  endif()
 endif ()
 
 if ((CMAKE_BUILD_TYPE STREQUAL "Dev") OR (CMAKE_BUILD_TYPE STREQUAL "Debug"))
