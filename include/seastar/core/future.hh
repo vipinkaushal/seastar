@@ -1129,7 +1129,7 @@ public:
     /// one type parameter.
     ///
     /// Equivalent to: \c std::get<0>(f.get()).
-    typename future_state<T...>::get0_return_type get0() {
+    typename future_state<T...>::get0_return_type get0() noexcept {
         return future_state<T...>::get0(get());
     }
 
