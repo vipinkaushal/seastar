@@ -66,6 +66,7 @@ struct reply {
         forbidden = 403, //!< forbidden
         not_found = 404, //!< not_found
         not_acceptable = 406, //!< not_acceptable
+        conflict = 409, //!< conflict
         length_required = 411, //!< length_required
         payload_too_large = 413, //!< payload_too_large
         unsupported_media_type = 415, //!< unsupported_media_type

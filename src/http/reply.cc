@@ -53,6 +53,7 @@ const sstring unauthorized = " 401 Unauthorized\r\n";
 const sstring forbidden = " 403 Forbidden\r\n";
 const sstring not_found = " 404 Not Found\r\n";
 const sstring not_acceptable = " 406 Not Acceptable\r\n";
+const sstring conflict = " 409 Conflict\r\n";
 const sstring length_required = " 411 Length Required\r\n";
 const sstring payload_too_large = " 413 Payload Too Large\r\n";
 const sstring unsupported_media_type = " 415 Unsupported Media Type\r\n";
@@ -92,6 +93,8 @@ static const sstring& to_string(reply::status_type status) {
         return not_found;
     case reply::status_type::not_acceptable:
         return not_acceptable;
+    case reply::status_type::conflict:
+        return conflict;
     case reply::status_type::length_required:
         return length_required;
     case reply::status_type::payload_too_large:
